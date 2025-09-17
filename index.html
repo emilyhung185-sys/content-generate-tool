@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshUp Social Media Content Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FreshUp Social Media Content Generator</h1>
+            <p>Generate professional content for LinkedIn, IGFB, and Threads</p>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Left Section: Input -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="topic">Topic/Keywords:</label>
+                    <textarea id="topic" placeholder="Enter your topic or keywords here..."></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="additionalInfo">Additional Company Information (Optional):</label>
+                    <textarea id="additionalInfo" placeholder="Enter additional company background information or leave blank to use default FreshUp background..."></textarea>
+                    <small class="input-hint">This will be added to the default FreshUp background information for more personalized content.</small>
+                </div>
+                <div class="input-group">
+                    <label for="brandLogo">Brand Logo (Optional):</label>
+                    <input type="file" id="brandLogo" accept="image/*" />
+                    <small class="input-hint">Upload your brand logo to include in generated images.</small>
+                </div>
+                <div class="input-group">
+                    <label for="productShot">Product Shot (Optional):</label>
+                    <input type="file" id="productShot" accept="image/*" />
+                    <small class="input-hint">Upload product images to include in generated images.</small>
+                </div>
+                <button id="generateBtn" class="generate-btn">Generate Content</button>
+                <button id="generateImagesBtn" class="generate-images-btn">🎨 Generate Images</button>
+            </div>
+
+            <!-- Right Section: Industry News Dashboard -->
+            <div class="news-dashboard">
+                <div class="news-header">
+                    <h2><span class="news-icon">📰</span> Industry News Dashboard</h2>
+                    <button id="refreshNews" class="refresh-btn">🔄 Refresh</button>
+                </div>
+                <div class="news-content">
+                    <div class="news-loading" id="newsLoading">Loading latest industry news...</div>
+                    <div class="news-list" id="newsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-sections">
+            <!-- LinkedIn Section -->
+            <div class="content-section">
+                <h2><span class="social-icon linkedin-icon">💼</span> LinkedIn</h2>
+                <div class="language-tabs">
+                    <button class="tab-btn active" data-tab="linkedin-en">English</button>
+                    <button class="tab-btn" data-tab="linkedin-zh">中文 (書面語)</button>
+                </div>
+                <div class="content-output" id="linkedin-en">
+                    <div class="loading" style="display: none;">Generating LinkedIn content...</div>
+                    <div class="content-text"></div>
+                </div>
+                <div class="content-output" id="linkedin-zh" style="display: none;">
+                    <div class="loading" style="display: none;">Generating LinkedIn content...</div>
+                    <div class="content-text"></div>
+                </div>
+            </div>
+
+            <!-- IGFB Section -->
+            <div class="content-section">
+                <h2><span class="social-icon igfb-icon">📱</span> IGFB</h2>
+                <div class="language-tabs">
+                    <button class="tab-btn active" data-tab="igfb-zh">中文 (書面語)</button>
+                    <button class="tab-btn" data-tab="igfb-en">English</button>
+                </div>
+                <div class="content-output" id="igfb-zh">
+                    <div class="loading" style="display: none;">Generating IGFB content...</div>
+                    <div class="content-text"></div>
+                </div>
+                <div class="content-output" id="igfb-en" style="display: none;">
+                    <div class="loading" style="display: none;">Generating IGFB content...</div>
+                    <div class="content-text"></div>
+                </div>
+            </div>
+
+            <!-- Threads Section -->
+            <div class="content-section">
+                <h2><span class="social-icon threads-icon">🧵</span> Threads</h2>
+                <div class="content-output" id="threads">
+                    <div class="loading" style="display: none;">Generating Threads content...</div>
+                    <div class="content-text"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Generator Section -->
+        <div class="image-generator-section">
+            <h2><span class="image-icon">🎨</span> Social Media Image Generator</h2>
+            <div class="image-grid" id="imageGrid">
+                <div class="image-placeholder">
+                    <div class="image-loading" id="imageLoading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Generating images...</p>
+                    </div>
+                    <div class="image-preview" id="imagePreview" style="display: none;">
+                        <!-- Images will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copy-buttons">
+            <button class="copy-btn" data-target="linkedin-en">Copy LinkedIn (EN)</button>
+            <button class="copy-btn" data-target="linkedin-zh">Copy LinkedIn (ZH)</button>
+            <button class="copy-btn" data-target="igfb-zh">Copy IGFB (ZH)</button>
+            <button class="copy-btn" data-target="igfb-en">Copy IGFB (EN)</button>
+            <button class="copy-btn" data-target="threads">Copy Threads</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
